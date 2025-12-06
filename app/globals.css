@@ -1,20 +1,33 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #171616;
+  --button: #FF7300;
+  --marque-text: #484848;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-button: var(--button);
+  --color-marque-text: var(--marque-text);
+
+  --font-kode: var(--font-kode-mono);
+
+  --animate-marquee-left: marquee-left 50s linear infinite;
+
+  @keyframes marquee-left {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #171616;
     --foreground: #ededed;
   }
 }

@@ -1,0 +1,6 @@
+export const marqueList = [
+    "NFTS STARTING FROM JUST $10!",
+    "JOIN THE WAVE",
+    "MORE LIQUID THAN OPENSEA",
+    "START SELLING ON RAFLUX"
+]
