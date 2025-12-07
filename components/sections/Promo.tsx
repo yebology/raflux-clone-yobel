@@ -1,6 +1,6 @@
 const Promo = () => {
   return (
-    <div className="w-full h-[20vh] lg:h-[30vh] flex justify-center">
+    <div className="w-full h-[20vh] lg:h-[36vh] flex justify-center">
       <div className="w-full lg:max-w-6xl border-l border-r border-gray-700">
         <div className="grid grid-cols-3 lg:grid-cols-5 h-full">
           <div className="lg:col-span-2 text-end flex items-center justify-end w-full border-r border-gray-700 pr-4">
