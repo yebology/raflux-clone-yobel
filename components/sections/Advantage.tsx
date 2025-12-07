@@ -119,17 +119,17 @@ const Advantage = () => {
                 <Image
                   src={circle1}
                   alt="circle1"
-                  className="absolute top-0 left-8 w-24"
+                  className="absolute top-0 left-8 w-24 lg:w-44 lg:top-4"
                 />
                 <Image
                   src={circle2}
                   alt="circle2"
-                  className="absolute bottom-0 left-1 w-64"
+                  className="absolute bottom-0 left-1 w-64 lg:w-[36vw]"
                 />
                 <Image
                   src={circle3}
                   alt="circle3"
-                  className="absolute top-1/2 -translate-y-1/2 right-8 w-36 md:left-56"
+                  className="absolute top-1/2 -translate-y-1/2 right-8 w-36 md:left-56 lg:w-72 lg:right-0 lg:left-auto"
                 />
 
                 <h1 className="text-button font-bold text-4xl text-center px-4 absolute inset-0 flex justify-center items-center lg:justify-end lg:text-end lg:pr-20 lg:text-5xl lg:inset-auto lg:top-24">
