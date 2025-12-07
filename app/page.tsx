@@ -1,6 +1,8 @@
 import Navbar from "@/components/layout/Navbar";
+import Collection from "@/components/sections/Collection";
 import Hero from "@/components/sections/Hero";
 import Marque from "@/components/sections/Marque";
+import Promo from "@/components/sections/Promo";
 
 export default function Home() {
   return (
@@ -8,6 +10,8 @@ export default function Home() {
       <Navbar />
       <Marque />
       <Hero />
+      <Collection />
+      <Promo />
 
       {/* <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 sm:items-start">
         
