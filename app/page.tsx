@@ -4,6 +4,7 @@ import Advantage from "@/components/sections/Advantage";
 import Advantage2 from "@/components/sections/Advantage2";
 import Announcement from "@/components/sections/Announcement";
 import Collection from "@/components/sections/Collection";
+import CTA from "@/components/sections/CTA";
 import Hero from "@/components/sections/Hero";
 import Marque from "@/components/sections/Marque";
 import Mission from "@/components/sections/Mission";
@@ -26,6 +27,7 @@ export default function Home() {
         <Slogan />
         <Advantage2 />
         <Announcement />
+        <CTA />
         <Marque />
         <Footer />
       </div>
