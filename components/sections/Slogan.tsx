@@ -4,16 +4,16 @@ const Slogan = () => {
       <div className="flex flex-col">
         <div className="flex lg:flex-row-reverse items-center justify-between">
           <div>
-            <h1 className="text-sm text-gray-400 lg:text-end">
+            <h1 className="text-sm text-gray-500 lg:text-end">
               // EVM COMPATIBLE (BASE)
             </h1>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold mt-4">
+          <h1 className="text-3xl text-light-orange md:text-4xl lg:text-7xl font-bold mt-4">
             FAIR.{" "}
           </h1>
         </div>
 
-        <h1 className="text-3xl md:text-4xl lg:text-7xl font-bold mt-4">
+        <h1 className="text-3xl text-light-orange md:text-4xl lg:text-7xl font-bold mt-4">
           TRANSPARENT. FUN{" "}
         </h1>
       </div>

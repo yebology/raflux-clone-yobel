@@ -8,7 +8,7 @@ const Announcement = () => {
       <div className="border border-r border-gray-700 hidden md:flex" />
       <div className="border border-r border-gray-700 hidden md:flex" />
       <div className="border border-r border-gray-700 justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex">
-        <h1 className="text-sm">// EVM COMPATIBLE (BASE)</h1>
+        <h1 className="text-sm text-gray-500">// EVM COMPATIBLE (BASE)</h1>
       </div>
       <div className="border border-r border-gray-700">
         <div className="hidden lg:flex lg:flex-row items-center lg:pt-18 justify-end lg:space-x-2">
@@ -18,7 +18,7 @@ const Announcement = () => {
           <Image src={cursor} alt="cursor.png" className="size-10" />
         </div>
         <div className="lg:flex justify-end lg:pt-58 hidden">
-          <h1 className="text-end text-sm lg:pl-32 lg:pr-4">
+          <h1 className="text-end text-sm text-gray-500 lg:pl-32 lg:pr-4">
             // CHAINLINK VRF
           </h1>
         </div>
@@ -32,7 +32,7 @@ const Announcement = () => {
           </h1>
         </div>
         <div>
-          <h1 className="font-semibold text-4xl lg:text-7xl">DON'T MISS OUT</h1>
+          <h1 className="font-semibold text-4xl lg:text-7xl text-light-orange">DON'T MISS OUT</h1>
         </div>
       </div>
       <div className="absolute flex lg:hidden flex-row items-center lg:pt-18 justify-end space-x-2 top-72 left-8">

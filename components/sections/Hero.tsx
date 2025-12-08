@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="w-full flex-col lg:flex lg:max-w-6xl border border-gray-700 flex lg:flex-row">
         <div className="border-r border-gray-700 flex items-center py-6 lg:py-8 px-6 lg:w-[65%]">
           <div className="lg:max-w-2xl">
-            <h1 className="text-start text-4xl lg:text-5xl font-bold leading-tight">
+            <h1 className="text-start text-4xl text-light-orange lg:text-5xl font-bold leading-tight">
               OWN NFTS, TOKENS, OR RWA ASSETS
             </h1>
           </div>

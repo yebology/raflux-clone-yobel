@@ -62,7 +62,7 @@ const Mission = () => {
           {missionList.map((mission, index) => (
             <h1
               key={index}
-              className={`font-semibold text-3xl lg:text-7xl ${
+              className={`font-semibold text-light-orange text-3xl lg:text-7xl ${
                 index % 2 === 0 ? "text-start" : "text-end"
               }`}
             >

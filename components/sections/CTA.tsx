@@ -25,7 +25,7 @@ const CTA = () => {
             </button>
           </div>
           <div className="px-8 py-10 flex flex-col space-y-6 lg:space-y-0 lg:pt-12 lg:px-12">
-            <h1 className="font-semibold text-4xl lg:text-6xl">
+            <h1 className="font-semibold text-light-orange text-4xl lg:text-6xl">
               DECENTRALIZED RAFFLES FOR DIGITAL ASSET
             </h1>
             <button className="bg-button py-4 px-20 w-fit lg:hidden">

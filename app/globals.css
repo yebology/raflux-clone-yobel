@@ -5,6 +5,7 @@
   --button: #ff7300;
   --marque-text: #484848;
   --primary: #0b0b0b;
+  --light-orange: #FFF2D3;
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --color-button: var(--button);
   --color-marque-text: var(--marque-text);
   --color-primary: var(--primary);
+  --color-light-orange: var(--light-orange);
 
   --font-kode: var(--font-kode-mono);
 

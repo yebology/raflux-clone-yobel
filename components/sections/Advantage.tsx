@@ -36,7 +36,7 @@ const Advantage = () => {
                   className="flex flex-col border-b border-gray-700 py-18 lg:h-[30vh]"
                 >
                   <div
-                    className={`pl-4 lg:pr-4 ${
+                    className={`pl-4 text-light-orange lg:pr-4 ${
                       index % 2 === 0 ? "lg:text-end" : "text-start"
                     }`}
                   >
@@ -100,7 +100,7 @@ const Advantage = () => {
                   className="flex flex-col border-b border-gray-700 py-18 lg:h-[30vh]"
                 >
                   <div
-                    className={`pl-4 lg:pr-4 ${
+                    className={`pl-4 text-light-orange lg:pr-4 ${
                       index % 2 === 0 ? "lg:text-end" : "text-start"
                     }`}
                   >
