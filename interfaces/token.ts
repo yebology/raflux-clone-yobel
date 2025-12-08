@@ -6,3 +6,10 @@ export interface Token {
   price: string;
   image: StaticImageData;
 }
+
+export interface SaleToken {
+  name: string;
+  rafflePrice: string;
+  saleEnded: number;
+  image: StaticImageData;
+}

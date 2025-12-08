@@ -1,5 +1,21 @@
 import cbtc from "@/assets/cbtc.png";
-import { Token } from "@/interfaces/token";
+import pudgy from "@/assets/pudgy.png";
+import { SaleToken, Token } from "@/interfaces/token";
+
+export const salesToken: SaleToken[] = [
+  {
+    name: "Pudgy Penguin #7105",
+    rafflePrice: "5",
+    image: pudgy,
+    saleEnded: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
+  },
+  {
+    name: "Pudgy Penguin #7105",
+    rafflePrice: "5",
+    image: pudgy,
+    saleEnded: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
+  },
+];
 
 export const tokenList: Token[] = [
   {
@@ -35,4 +51,6 @@ export const tokenList: Token[] = [
 ];
 
 const DUPLICATION_FACTOR = 15;
-export const multipliedTokenList: Token[] = Array(DUPLICATION_FACTOR).fill(tokenList).flat();
+export const multipliedTokenList: Token[] = Array(DUPLICATION_FACTOR)
+  .fill(tokenList)
+  .flat();

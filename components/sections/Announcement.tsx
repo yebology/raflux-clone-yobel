@@ -7,7 +7,7 @@ const Announcement = () => {
       <div className="border border-r border-gray-700 hidden md:flex" />
       <div className="border border-r border-gray-700 hidden md:flex" />
       <div className="border border-r border-gray-700 hidden md:flex" />
-      <div className="border border-r border-gray-700 justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex">
+      <div className="border  border-r border-gray-700 justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex">
         <h1 className="text-sm text-gray-500">// EVM COMPATIBLE (BASE)</h1>
       </div>
       <div className="border border-r border-gray-700">
@@ -23,7 +23,7 @@ const Announcement = () => {
           </h1>
         </div>
       </div>
-      <div className="border border-r border-gray-700" />
+      <div className="border md:col-span-2 lg:col-span-1 border-r border-gray-700" />
 
       <div className="absolute bg-background w-90 h-40 md:w-[92vw] lg:w-100 lg:h-70 border border-gray-700 inset-0 flex flex-col lg:space-y-10 space-y-6 pl-4 justify-center top-1/4 left-8 lg:top-1/4 lg:left-58">
         <div className="bg-button/10 px-6 py-0.5 inline-block max-w-max">

@@ -4,7 +4,7 @@ import cta_line from "@/assets/cta_line.png";
 
 const CTA = () => {
   return (
-    <div className="border-t border-gray-700 relative">
+    <div className="relative">
       <div
         className="hidden absolute right-90 lg:flex ml-28 w-[35vw] h-[8vh] bg-primary rotate-180"
         style={{

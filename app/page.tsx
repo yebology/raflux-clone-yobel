@@ -10,7 +10,9 @@ import Marque from "@/components/sections/Marque";
 import Mission from "@/components/sections/Mission";
 import NFT from "@/components/sections/NFT";
 import Promo from "@/components/sections/Promo";
+import Sale from "@/components/sections/Sale";
 import Slogan from "@/components/sections/Slogan";
+import Space from "@/components/sections/Space";
 
 export default function Home() {
   return (
@@ -27,6 +29,8 @@ export default function Home() {
         <Slogan />
         <Advantage2 />
         <Announcement />
+        <Sale />
+        <Space />
         <CTA />
         <Marque />
         <Footer />
