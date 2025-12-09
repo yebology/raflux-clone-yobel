@@ -30,8 +30,8 @@ const Sale = () => {
       <div className="border-r md:col-span-2 lg:col-span-1 border-t border-gray-700"></div>
       <div className="border-r border-t border-gray-700" />
       <div className="absolute flex flex-col md:flex-row left-8 space-y-4 pt-60 lg:pt-0 md:space-x-4 lg:space-y-0 lg:left-96">
-        {salesToken.map((token, _) => (
-          <SaleCard saleToken={token} />
+        {salesToken.map((token, index) => (
+          <SaleCard key={index} saleToken={token} />
         ))}
       </div>
     </div>

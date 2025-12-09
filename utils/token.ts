@@ -1,4 +1,8 @@
 import cbtc from "@/assets/cbtc.png";
+import milady from "@/assets/milady.png"
+import doodles from "@/assets/doodles.png"
+import weth from "@/assets/weth.png"
+import wbtc from "@/assets/wbtc.png"
 import pudgy from "@/assets/pudgy.png";
 import { SaleToken, Token } from "@/interfaces/token";
 
@@ -28,25 +32,25 @@ export const tokenList: Token[] = [
     name: "MILADY",
     amount: 10,
     price: "$200,000",
-    image: cbtc,
+    image: milady,
   },
   {
     name: "DOODLES",
     amount: 10,
     price: "$200,000",
-    image: cbtc,
+    image: doodles,
   },
   {
     name: "WBTC ON BASE",
     amount: 10,
     price: "$200,000",
-    image: cbtc,
+    image: wbtc,
   },
   {
     name: "WETH ON BASE",
     amount: 10,
     price: "$200,000",
-    image: cbtc,
+    image: weth,
   },
 ];
 

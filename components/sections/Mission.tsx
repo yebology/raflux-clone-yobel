@@ -1,41 +1,77 @@
+"use client";
+
 import Image from "next/image";
 import star1 from "@/assets/star1.png";
 import star2 from "@/assets/star2.png";
 import { missionList } from "@/utils/mission";
+import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { useEffect, useRef } from "react";
+
+gsap.registerPlugin(ScrambleTextPlugin);
 
 const Mission = () => {
   const gridBackgroundStyle = {
-    // Membuat garis vertikal dan horizontal
     backgroundImage: `
       repeating-linear-gradient(0deg, #333 0.5px, transparent 1px, transparent 50px),
       repeating-linear-gradient(90deg, #333 0.5px, transparent 1px, transparent 50px)
     `,
-    // Ukuran satu kotak (20px x 20px)
     backgroundSize: "50px 50px",
-    // Warna #333 disesuaikan agar samar-samar (gelap, seperti yang terlihat di gambar)
   };
+
+  const missionRefs = useRef<Array<HTMLHeadingElement | null>>([]);
+
+  useEffect(() => {
+    const container = document.querySelector("#mission-section");
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            missionRefs.current.forEach((el, index) => {
+              if (el) {
+                gsap.set(el, { text: "" });
+                gsap.to(el, {
+                  duration: 1.5,
+                  scrambleText: {
+                    text: missionList[index],
+                    chars: "RAFLUX",
+                    revealDelay: 0,
+                    speed: 0.5,
+                  },
+                  delay: index * 0.3,
+                });
+              }
+            });
+
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div>
       <div
         className="hidden lg:flex ml-28 w-[35vw] h-[6vh] bg-primary"
-        style={{
-          clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0 100%)",
-        }}
-      ></div>
+        style={{ clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0 100%)" }}
+      />
       <div
         className="md:hidden ml-auto w-[70vw] h-[6vh] bg-primary"
-        style={{
-          clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)",
-        }}
-      ></div>
+        style={{ clipPath: "polygon(10% 0, 100% 0, 100% 100%, 0 100%)" }}
+      />
       <div
         className="hidden lg:hidden md:flex mx-auto w-[70vw] h-[6vh] bg-primary"
-        style={{
-          clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0 100%)",
-        }}
-      ></div>
+        style={{ clipPath: "polygon(10% 0, 90% 0, 100% 100%, 0 100%)" }}
+      />
       <div className="w-full flex justify-center bg-primary h-[8vh]" />
+
       <div className="flex lg:flex-row border-t border-b bg-primary border-gray-700">
         <div className="hidden lg:flex-1 border-r border-gray-700" />
         <div className="flex-3 flex items-center justify-between py-6 px-4">
@@ -48,7 +84,9 @@ const Mission = () => {
         </div>
         <div className="hidden lg:flex-1 border-l border-gray-700" />
       </div>
+
       <div
+        id="mission-section"
         style={gridBackgroundStyle}
         className="h-[85vh] relative border-b border-gray-700"
       >
@@ -58,15 +96,19 @@ const Mission = () => {
         <div className="absolute bottom-0 left-2">
           <Image src={star1} alt="star.png" className="w-50 lg:w-60" />
         </div>
+
         <div className="flex flex-col space-y-10 justify-center h-full px-10">
           {missionList.map((mission, index) => (
             <h1
               key={index}
+              ref={(el) => {
+                missionRefs.current[index] = el;
+              }}
               className={`font-semibold text-light-orange text-3xl lg:text-7xl ${
                 index % 2 === 0 ? "text-start" : "text-end"
               }`}
             >
-              {mission}
+              {" "}
             </h1>
           ))}
         </div>
