@@ -13,7 +13,6 @@ const Marque = () => {
     const marquee = marqueeRef.current;
     const children = Array.from(marquee.children) as HTMLElement[];
 
-    // Duplikat konten untuk seamless loop
     children.forEach((child) => {
       const clone = child.cloneNode(true) as HTMLElement;
       marquee.appendChild(clone);

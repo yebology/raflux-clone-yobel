@@ -8,6 +8,7 @@ export interface Token {
 }
 
 export interface SaleToken {
+  id: number;
   name: string;
   rafflePrice: string;
   saleEnded: number;

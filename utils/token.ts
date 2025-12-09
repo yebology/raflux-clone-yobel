@@ -1,19 +1,21 @@
 import cbtc from "@/assets/cbtc.png";
-import milady from "@/assets/milady.png"
-import doodles from "@/assets/doodles.png"
-import weth from "@/assets/weth.png"
-import wbtc from "@/assets/wbtc.png"
+import milady from "@/assets/milady.png";
+import doodles from "@/assets/doodles.png";
+import weth from "@/assets/weth.png";
+import wbtc from "@/assets/wbtc.png";
 import pudgy from "@/assets/pudgy.png";
 import { SaleToken, Token } from "@/interfaces/token";
 
 export const salesToken: SaleToken[] = [
   {
-    name: "Pudgy Penguin #7105",
+    id: 1,
+    name: "Pudgy Penguin #7106",
     rafflePrice: "5",
     image: pudgy,
     saleEnded: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
   },
   {
+    id: 2,
     name: "Pudgy Penguin #7105",
     rafflePrice: "5",
     image: pudgy,
@@ -53,8 +55,3 @@ export const tokenList: Token[] = [
     image: weth,
   },
 ];
-
-const DUPLICATION_FACTOR = 15;
-export const multipliedTokenList: Token[] = Array(DUPLICATION_FACTOR)
-  .fill(tokenList)
-  .flat();

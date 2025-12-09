@@ -14,22 +14,17 @@ const TokenMarquee = ({ tokenList, direction }: TokenMarqueeProps) => {
   useEffect(() => {
     if (!innerRef.current || !marqueeRef.current) return;
 
-    // Duplicate content
     const clone = innerRef.current.cloneNode(true) as HTMLElement;
     marqueeRef.current.appendChild(clone);
 
     const totalWidth = innerRef.current.offsetWidth;
 
-    // 💥 FIX BAGIAN INI
     if (direction === "right") {
-      // kalau kanan, mulai dari negatif width biar ga ada space kosong
       gsap.set(marqueeRef.current, { x: -totalWidth });
     } else {
-      // kalau kiri, mulai dari 0
       gsap.set(marqueeRef.current, { x: 0 });
     }
 
-    // Tentukan target pergerakan
     const moveX = direction === "left" ? -totalWidth : 0;
 
     gsap.to(marqueeRef.current, {

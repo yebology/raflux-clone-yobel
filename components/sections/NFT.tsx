@@ -25,7 +25,6 @@ const NFT = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // FUTURE
             if (futureRef.current) {
               gsap.set(futureRef.current, { text: "" });
               gsap.to(futureRef.current, {
@@ -38,7 +37,6 @@ const NFT = () => {
               });
             }
 
-            // NFT MARKETPLACE
             if (marketplaceRef.current) {
               gsap.set(marketplaceRef.current, { text: "" });
               gsap.to(marketplaceRef.current, {
