@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { salesToken } from "@/utils/token";
 import SaleCard from "../card/SaleCard";
 import left from "@/assets/left.png";
@@ -13,6 +13,8 @@ const Sale = () => {
   const [visibleTokens, setVisibleTokens] = useState<SaleToken[]>(salesToken);
   const [hiddenTokens, setHiddenTokens] = useState<SaleToken[]>([]);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
 
   const handleLeft = () => {
     if (!carouselRef.current || visibleTokens.length === 1) return;
@@ -50,6 +52,53 @@ const Sale = () => {
     });
   };
 
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (
+            entry.isIntersecting &&
+            entry.intersectionRatio >= 0.3 &&
+            !hasAnimated.current
+          ) {
+            hasAnimated.current = true;
+
+            if (carouselRef.current) {
+              gsap.fromTo(
+                carouselRef.current.children,
+                { scale: 0, opacity: 0 },
+                {
+                  scale: 1,
+                  opacity: 1,
+                  duration: 0.5,
+                  stagger: 0.1,
+                  ease: "power2.out",
+                }
+              );
+            }
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleLeft();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [visibleTokens, hiddenTokens]);
+
   return (
     <div className="bg-primary border-b border-gray-700 grid grid-cols-4 md:grid-cols-6 h-[1400px] md:h-screen lg:h-[60vh] relative">
       <div className="border-r border-gray-700">
@@ -79,8 +128,10 @@ const Sale = () => {
       <div className="border-r border-t border-gray-700" />
       <div className="absolute left-8 lg:left-96 pt-60 lg:pt-0 overflow-hidden w-[80%]">
         <div ref={carouselRef} className="flex flex-col md:flex-row gap-4">
-          {visibleTokens.map((token) => (
-            <SaleCard key={token.id} saleToken={token} />
+          {visibleTokens.map((token, i) => (
+            <div key={token.id}>
+              <SaleCard saleToken={token} />
+            </div>
           ))}
         </div>
       </div>
