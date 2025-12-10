@@ -124,8 +124,12 @@ const Sale = () => {
       </div>
       <div className="border-r md:col-span-2 lg:col-span-1 border-gray-700 hidden md:flex" />
       <div className="border-r border-gray-700 justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex"></div>
-      <div className="border-r md:col-span-2 lg:col-span-1 border-t border-gray-700"></div>
-      <div className="border-r border-t border-gray-700" />
+      <div className="flex lg:hidden border-r md:col-span-2 lg:col-span-1 border-t border-gray-700"></div>
+      <div className="flex lg:hidden border-r border-t border-gray-700" />
+      <div className="flex lg:hidden border-r border-gray-700" />
+      <div className="flex lg:hidden border-r md:col-span-2 lg:col-span-1 border-gray-700" />
+      <div className="flex border-r md:col-span-2 lg:col-span-1 border-gray-700" />
+
       <div className="absolute left-8 lg:left-96 pt-60 lg:pt-0 overflow-hidden w-[80%]">
         <div ref={carouselRef} className="flex flex-col md:flex-row gap-4">
           {visibleTokens.map((token, i) => (

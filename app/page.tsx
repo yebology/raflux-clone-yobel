@@ -28,15 +28,6 @@ export default function Home() {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // ScrollTrigger.create({
-    //   trigger: sectionRef.current,
-    //   start: "top top",
-    //   end: "+=100%",
-    //   pin: true,
-    //   pinSpacing: false,
-    //   scrub: true,
-    // });
-
     ScrollTrigger.create({
       trigger: sectionRef.current,
       start: "top top",
@@ -65,7 +56,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col font-kode min-w-screen bg-background overflow-hidden">
+    <div className="flex min-h-screen flex-col font-kode min-w-screen bg-background overflow-hidden scroll-smooth">
       <Navbar />
       <div ref={sectionRef}>
         <Marque />

@@ -3,7 +3,7 @@ import Image from "next/image";
 import cursor from "@/assets/cursor.png";
 import { useEffect, useRef, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
-import gsap from "gsap"
+import gsap from "gsap";
 
 const Announcement = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -48,8 +48,8 @@ const Announcement = () => {
     >
       <div className="border border-r border-gray-700 hidden md:flex" />
       <div className="border border-r border-gray-700 hidden md:flex" />
-      <div className="border border-r border-gray-700 hidden md:flex" />
-      <div className="border  border-r border-gray-700 justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex">
+      <div className="border border-r border-gray-700 hidden md:flex md:col-span-2 lg:col-span-1" />
+      <div className="border  border-r border-gray-700  justify-center lg:pt-36 lg:pl-4 lg:pr-18 hidden lg:flex">
         <h1 className="text-sm text-gray-500">
           {playTypewriter && (
             <Typewriter
@@ -60,7 +60,7 @@ const Announcement = () => {
           )}
         </h1>
       </div>
-      <div className="border border-r border-gray-700">
+      <div className="border border-r border-gray-700 md:col-span-2 lg:col-span-1">
         <div className="hidden lg:flex lg:flex-row items-center lg:pt-18 justify-end lg:space-x-2">
           <h1 className="text-button font-semibold lg:text-2xl">
             BROWSE RAFLUX
@@ -79,7 +79,7 @@ const Announcement = () => {
           </h1>
         </div>
       </div>
-      <div className="border md:col-span-2 lg:col-span-1 border-r border-gray-700" />
+      <div className="border md:col-span-2 lg:col-span-1 border-r border-gray-700 md:hidden lg:flex" />
 
       <div
         ref={cardRef}
