@@ -6,15 +6,35 @@ export const missionList = [
 ];
 
 export const missionListV2 = [
-  { id: 0, text: "EMPOWER ", move: null },
-  { id: 0, text: "COMMUNITIES", move: "right" }, // geser ke kanan
-  { id: 1, text: "A ", move: "left" }, // geser ke kiri
-  { id: 1, text: "FAIR ", move: "left" }, // geser ke kiri
-  { id: 1, text: "CHANCE", move: null },
-  { id: 2, text: "TO ", move: null },
-  { id: 2, text: "WIN ", move: "right" }, // geser ke kanan
-  { id: 2, text: "OWN ", move: "right" }, // geser ke kanan
-  { id: 2, text: "AND", move: "right" }, // geser ke kanan
-  { id: 3, text: "GROW ", move: null },
-  { id: 3, text: "TOGETHER", move: "left" }, // geser ke kiri
+  {
+    id: 0,
+    items: [
+      { text: "EMPOWER", move: null, maxFactor: 0 },
+      { text: "COMMUNITIES", move: "right", maxFactor: 0.42 },
+    ],
+  },
+  {
+    id: 1,
+    items: [
+      { text: "A ", move: "left", maxFactor: 0.62 },
+      { text: "FAIR ", move: "left", maxFactor: 0.3 },
+      { text: "CHANCE", move: null, maxFactor: 0 },
+    ],
+  },
+  {
+    id: 2,
+    items: [
+      { text: "TO ", move: null, maxFactor: 0 },
+      { text: "WIN, ", move: "right", maxFactor: 0.2 },
+      { text: "OWN, ", move: "right", maxFactor: 0.4 },
+      { text: "AND", move: "right", maxFactor: 0.56 },
+    ],
+  },
+  {
+    id: 3,
+    items: [
+      { text: "GROW ", move: "left", maxFactor: 0.6 },
+      { text: "TOGETHER", move: null, maxFactor: 0 },
+    ],
+  },
 ];

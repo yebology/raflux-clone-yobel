@@ -8,8 +8,12 @@ import plus3 from "@/assets/plus3.png";
 import circle1 from "@/assets/circle1.png";
 import circle2 from "@/assets/circle2.png";
 import circle3 from "@/assets/circle3.png";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Advantage = () => {
   const gridBackgroundStyle = {
@@ -23,6 +27,37 @@ const Advantage = () => {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
   const [playTypewriter, setPlayTypewriter] = useState(false);
+
+  const horizontalRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const horizontal = horizontalRef.current;
+      const container = containerRef.current;
+
+      if (!horizontal || !container) return;
+
+      const scrollWidth = horizontal.scrollWidth;
+      const viewportWidth = window.innerWidth;
+      const scrollDistance = scrollWidth - viewportWidth;
+
+      gsap.to(horizontal, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: container,
+          start: "top top",
+          end: `+=${scrollWidth}`,
+          scrub: true,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -45,10 +80,13 @@ const Advantage = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-primary overflow-x-hidden lg:overflow-x-auto scroll-smooth">
+    <div
+      ref={sectionRef}
+      className="bg-primary overflow-x-hidden lg:overflow-x-auto scroll-smooth"
+    >
       <div className="relative flex flex-col lg:flex-row lg:min-w-[1800px]">
         <div>
-          <div className="flex flex-col lg:flex-row lg:min-w-screen">
+          <div className="flex flex-col lg:flex-row lg:min-w-[1560px]">
             <div className="hidden lg:block border border-gray-700 w-24"></div>
 
             <div className="flex-1 border-gray-700">
@@ -69,7 +107,7 @@ const Advantage = () => {
               {sellerAdvantages.map((value, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border-b border-gray-700 py-18 lg:h-[30vh]"
+                  className="flex flex-col border-b border-gray-700 py-18 lg:h-[36vh]"
                 >
                   <div
                     className={`pl-4 text-light-orange lg:pr-4 ${
@@ -102,12 +140,12 @@ const Advantage = () => {
             <div className="flex-1 border border-gray-700">
               <div
                 style={gridBackgroundStyle}
-                className="relative bg-background border-gray-700 min-h-[400px] lg:min-h-[594px] lg:min-w-[50vw]"
+                className="relative bg-background border-gray-700 min-h-[400px] lg:min-h-[700px] lg:min-w-[54vw]"
               >
                 <Image
                   src={plus1}
                   alt="plus1"
-                  className="absolute top-0 left-1 w-24 lg:w-48"
+                  className="absolute top-0 left-1 w-24 lg:w-60"
                 />
                 <Image
                   src={plus2}
@@ -117,10 +155,10 @@ const Advantage = () => {
                 <Image
                   src={plus3}
                   alt="plus3"
-                  className="absolute bottom-0 right-24 w-54 md:left-28 lg:left-60 lg:w-100"
+                  className="absolute bottom-0 right-24 w-54 md:left-28 lg:left-60 lg:w-120"
                 />
 
-                <h1 className="text-button font-bold text-center px-4 text-4xl absolute inset-0 flex justify-center items-center lg:justify-end lg:text-end lg:pr-20 lg:text-5xl lg:inset-auto lg:top-24">
+                <h1 className="text-button font-bold text-center px-4 text-4xl absolute inset-0 flex justify-center items-center lg:justify-end lg:text-end lg:right-8 lg:pl-60 lg:text-6xl lg:inset-auto lg:top-24">
                   {playTypewriter && (
                     <Typewriter
                       words={["MORE LIQUID THAN OPENSEA"]}
@@ -163,7 +201,7 @@ const Advantage = () => {
               {buyerAdvantages.map((value, index) => (
                 <div
                   key={index}
-                  className="flex flex-col border-b border-gray-700 py-18 lg:h-[30vh]"
+                  className="flex flex-col border-b border-gray-700 py-18 lg:h-[36vh]"
                 >
                   <div
                     className={`pl-4 text-light-orange lg:pr-4 ${
@@ -196,25 +234,25 @@ const Advantage = () => {
             <div className="flex-1 border border-gray-700">
               <div
                 style={gridBackgroundStyle}
-                className="relative bg-background border-gray-700 min-h-[400px] lg:min-h-[594px] lg:min-w-[50vw]"
+                className="relative bg-background border-gray-700 min-h-[400px] lg:min-h-[700px] lg:min-w-[54vw]"
               >
                 <Image
                   src={circle1}
                   alt="circle1"
-                  className="absolute top-0 left-8 w-24 lg:w-44 lg:top-4"
+                  className="absolute top-0 left-8 w-24 lg:w-54 lg:top-4"
                 />
                 <Image
                   src={circle2}
                   alt="circle2"
-                  className="absolute bottom-0 left-1 w-64 lg:w-[36vw]"
+                  className="absolute bottom-0 left-1 w-64 lg:w-[40vw]"
                 />
                 <Image
                   src={circle3}
                   alt="circle3"
-                  className="absolute top-1/2 -translate-y-1/2 right-8 w-36 md:left-56 lg:w-72 lg:right-0 lg:left-auto"
+                  className="absolute top-1/2 -translate-y-1/2 right-8 w-36 md:left-56 lg:w-76 lg:right-0 lg:left-auto"
                 />
 
-                <h1 className="text-button font-bold text-4xl text-center px-4 absolute inset-0 flex justify-center items-center lg:justify-end lg:text-end lg:pr-20 lg:text-5xl lg:inset-auto lg:top-24">
+                <h1 className="text-button font-bold text-4xl text-center px-4 absolute inset-0 flex justify-center items-center lg:justify-end lg:text-end lg:right-8 lg:pl-60 lg:text-6xl lg:inset-auto lg:top-24">
                   {playTypewriter && (
                     <Typewriter
                       words={["JOIN INSTANTLY WITH USDC/USDT"]}
