@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import Advantage from "@/components/sections/Advantage";
@@ -13,15 +15,64 @@ import Promo from "@/components/sections/Promo";
 import Sale from "@/components/sections/Sale";
 import Slogan from "@/components/sections/Slogan";
 import Space from "@/components/sections/Space";
+import { ScrollTrigger } from "gsap/all";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const scrambleDone = useRef(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // ScrollTrigger.create({
+    //   trigger: sectionRef.current,
+    //   start: "top top",
+    //   end: "+=100%",
+    //   pin: true,
+    //   pinSpacing: false,
+    //   scrub: true,
+    // });
+
+    ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: "+=100%",
+      pin: true,
+      pinSpacing: false,
+      scrub: true,
+      pinType: "transform", // pastikan pakai transform bukan fixed
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !scrambleDone.current) {
+          scrambleDone.current = true;
+          observer.disconnect();
+        }
+      });
+    });
+
+    observer.observe(sectionRef.current);
+
+    return () => {
+      observer.disconnect();
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+    };
+  }, []);
+
   return (
-    <div className="flex min-h-screen flex-col font-kode min-w-screen bg-background">
+    <div className="flex min-h-screen flex-col font-kode min-w-screen bg-background overflow-hidden">
       <Navbar />
-      <Marque />
-      <Hero />
-      <Collection />
-      <Promo />
+      <div ref={sectionRef}>
+        <Marque />
+        <Hero />
+        <Collection />
+        <Promo />
+      </div>
       <div className="relative -mt-12">
         <Mission />
         <NFT />
